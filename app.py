@@ -21,7 +21,8 @@ from core.parser import get_parsing_issues
 
 # Page configuration
 st.set_page_config(
-    page_title="Rockfon Inventory Alerts",
+    # page_title="Rockfon Inventory Alerts",
+    page_title="Inventory Alerts",
     page_icon="📦",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -281,7 +282,8 @@ def render_download(items: list):
         st.download_button(
             label="⬇️ Download Report as CSV",
             data=csv_data,
-            file_name="rockfon_reorder_alerts.csv",
+            # file_name="rockfon_reorder_alerts.csv",
+            file_name="reorder_alerts.csv",
             mime="text/csv",
             help="Download the current view as a CSV file",
             use_container_width=True,
@@ -314,7 +316,8 @@ def main():
     uploaded_file = st.file_uploader(
         "Drop your Excel file here",
         type=["xlsx", "xls"],
-        help="Upload the weekly Rockfon Inventory Reorder Report",
+        # help="Upload the weekly Rockfon Inventory Reorder Report",
+        help="Upload the weekly Inventory Reorder Report",
         label_visibility="collapsed"
     )
 
@@ -323,7 +326,8 @@ def main():
         st.markdown("""
         <div class="upload-hint">
             <span class="arrow">☝️</span>
-            <span class="hint-text">Upload your Rockfon Inventory Excel file above to get started</span>
+            <!-- <span class="hint-text">Upload your Rockfon Inventory Excel file above to get started</span> -->
+            <span class="hint-text">Upload your inventory Excel file above to get started</span>
         </div>
         """, unsafe_allow_html=True)
         return
@@ -335,7 +339,8 @@ def main():
 
             if df.empty:
                 st.error("Could not find any inventory data in the uploaded file.")
-                st.info("Make sure you're uploading the correct Rockfon inventory report.")
+                # st.info("Make sure you're uploading the correct Rockfon inventory report.")
+                st.info("Make sure you're uploading the correct inventory report.")
                 return
 
             # Show any parsing issues as warnings
@@ -355,7 +360,8 @@ def main():
 
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
-            st.info("Please ensure you're uploading a valid Rockfon inventory Excel file.")
+            # st.info("Please ensure you're uploading a valid Rockfon inventory Excel file.")
+            st.info("Please ensure you're uploading a valid inventory Excel file.")
             return
 
     # Get unique categories
