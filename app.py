@@ -144,20 +144,19 @@ def load_logo() -> str | None:
 
 def render_header():
     """Render the page header with logo."""
-    logo_svg = load_logo()
-
-    if logo_svg:
-        # Scale up the logo
-        scaled_svg = logo_svg.replace('width="127"', 'width="200"').replace('height="30"', 'height="48"')
-        header_html = f"""
-        <div class="header-container">
-            <div class="header-logo">{scaled_svg}</div>
-            <h1 class="header-title">Inventory Reorder Alerts</h1>
-        </div>
-        """
-        st.markdown(header_html, unsafe_allow_html=True)
-    else:
-        st.title("Inventory Reorder Alerts")
+    # Logo temporarily removed
+    # logo_svg = load_logo()
+    # if logo_svg:
+    #     scaled_svg = logo_svg.replace('width="127"', 'width="200"').replace('height="30"', 'height="48"')
+    #     header_html = f"""
+    #     <div class="header-container">
+    #         <div class="header-logo">{scaled_svg}</div>
+    #         <h1 class="header-title">Inventory Reorder Alerts</h1>
+    #     </div>
+    #     """
+    #     st.markdown(header_html, unsafe_allow_html=True)
+    # else:
+    st.title("Inventory Reorder Alerts")
 
     st.markdown('<p class="header-subtitle">Upload your weekly inventory export to identify items that need attention.</p>', unsafe_allow_html=True)
     st.divider()
